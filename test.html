@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+</head>
+<body>
+	<script src="strictTest.js"></script>
+	<script type="text/javascript">
+		var pattern=/[a-z]*12/;
+		var str='12';
+
+		console.log(pattern.strictTest(str));
+		// => true
+
+		str='abc12';
+
+		console.log(pattern.strictTest(str));
+		// => true
+
+		str='abc12def';
+
+		console.log(pattern.strictTest(str));
+		// => false
+
+		str=12;
+		console.log(pattern.strictTest(str));
+		// => true
+	</script>
+</body>
+</html>
