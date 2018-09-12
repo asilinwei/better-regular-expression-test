@@ -55,7 +55,7 @@ if(!RegExp.prototype.strictTest){
 		var pattern=function(str){
 			var pattern='',
 			    i=1;
-			while(true){
+			while(1){
 				pattern+=str[i];
 				i+=1;
 				if(str[i]==='/'&&str[i-1]!=='\\'){
@@ -84,8 +84,21 @@ if(!RegExp.prototype.strictTest){
 			var str=this+'',
 				pat=pattern(str),  // you can also use /pattern/.source
 				f=flag(this),
-				expression=new RegExp(pat,f);
-			return expression.test(string+'');   
+				expression=new RegExp(pat,f),
+				i=0,
+				test=string+'';
+			if(!expression.ignoreCase){
+				while(1){
+					if(test[i]>='A'&&test[i]<='Z'){
+						return false;
+					}
+					i+=1;
+					if(!test[i]){
+						break;
+					}
+				}
+			}	
+			return expression.test(test);   
 			
 		};
 

@@ -26,6 +26,17 @@
 		str=12;
 		console.log(pattern.strictTest(str));
 		// => true
+
+		pattern=/abc/;
+		str='Abc';
+
+		console.log(pattern.strictTest(str));
+		// => false
+
+		pattern=/abc/i;
+		str='Abc';
+		console.log(pattern.strictTest(str));
+		// => true
 	</script>
 </body>
 </html>
